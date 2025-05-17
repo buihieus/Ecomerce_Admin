@@ -65,3 +65,5 @@ theme,sonner shadc:
  npx supabase gen types typescript --project-id dgxwulsaskeapldevwjp --schema public > src/supabase/types.ts cập nhật type
 
  supabase ui bên kia là version 2.22.12
+
+ npx supabase gen types typescript --project-id dgxwulsaskeapldevwjp --schema public > src/types/database.types.ts
