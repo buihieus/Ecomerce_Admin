@@ -28,6 +28,7 @@ export const ProductTableRow = ({
       category: product.category,
       price: product.price,
       maxQuantity: product.maxQuantity,
+      description: product.description,
       heroImage: product.heroImage,
       images: product.images,
       slug: product.slug,
@@ -42,6 +43,7 @@ export const ProductTableRow = ({
       <TableCell>{product.category.name}</TableCell>
       <TableCell>{product.price}</TableCell>
       <TableCell>{product.maxQuantity}</TableCell>
+      <TableCell>{product.description}</TableCell>
       <TableCell>
         {product.heroImage && (
           <Image
@@ -75,6 +77,7 @@ export const ProductTableRow = ({
               category: product.category.id.toString(),
               price: product.price?.toString() ?? '',
               maxQuantity: product.maxQuantity.toString(),
+              description: product.description,
               images: [],
               slug: product.slug,
               intent: 'update',
@@ -86,23 +89,24 @@ export const ProductTableRow = ({
         <Button
           variant='ghost'
           size='icon'
-          onClick={() =>
+          onClick={() => {
             setCurrentProduct({
               title: product.title,
               category: product.category.id.toString(),
               price: product.price?.toString() ?? '',
               maxQuantity: product.maxQuantity.toString(),
+              description: product.description,
               images: [],
+              heroImage: null,
               slug: product.slug,
               intent: 'update',
-            })
-          }
+            });
+            setIsDeleteModalOpen(true);
+          }}
         >
-          <Trash2
-            className='h-4 w-4'
-            onClick={() => setIsDeleteModalOpen(true)}
-          />
+          <Trash2 className='h-4 w-4' />
         </Button>
+
       </TableCell>
     </TableRow>
   );

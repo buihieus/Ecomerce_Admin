@@ -33,6 +33,7 @@ export const createProduct = async ({
   maxQuantity,
   price,
   title,
+  description,
 }: CreateProductSchemaServer) => {
   const supabase = await createClient();
   const slug = slugify(title, { lower: true });
@@ -45,6 +46,7 @@ export const createProduct = async ({
     price,
     slug,
     title,
+    description,
   });
 
   if (error) {
@@ -64,6 +66,7 @@ export const updateProduct = async ({
   price,
   slug,
   title,
+  description,
 }: UpdateProductSchema) => {
   const supabase = await createClient();
   const { data, error } = await supabase
@@ -75,6 +78,7 @@ export const updateProduct = async ({
       maxQuantity,
       price,
       title,
+      description,
     })
     .match({ slug });
 

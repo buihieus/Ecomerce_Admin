@@ -47,20 +47,22 @@ export const ProductForm = ({
 }: Props) => {
   const isSubmitting = form.formState.isSubmitting;
 
-  useEffect(() => {
-    if (defaultValues) {
-      form.reset(defaultValues);
-    } else {
-      form.reset({
-        title: '',
-        category: '',
-        price: '',
-        maxQuantity: '',
-        heroImage: undefined,
-        images: undefined,
-      });
-    }
-  }, [defaultValues, form]);
+ useEffect(() => {
+  if (defaultValues) {
+    form.reset(defaultValues);
+  } else {
+    form.reset({
+      title: '',
+      category: ' ',
+      price: '',
+      maxQuantity: '',
+      heroImage: undefined,
+      images: undefined,
+      description: '',  
+    });
+  }
+}, [defaultValues, form]);
+
 
   return (
     <Dialog open={isProductModalOpen} onOpenChange={setIsProductModalOpen}>
@@ -147,6 +149,25 @@ export const ProductForm = ({
                   </FormItem>
                 )}
               />
+          <FormField
+              control={form.control}
+              name='description'
+              render={({ field }) => (
+                <FormItem className='flex flex-col'>
+                  <FormLabel>Description</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder='Enter product description'
+                      {...field}
+                      disabled={isSubmitting}
+                      className='col-span-3'
+                      // Nếu muốn multiline, phải dùng textarea chứ Input mặc định là input type="text"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
               <FormField
                 control={form.control}
                 name='maxQuantity'

@@ -10,6 +10,7 @@ export type ProductWithCategory = {
   price: number | null;
   slug: string;
   title: string;
+  description: string;
 };
 
 export type ProductsWithCategoriesResponse = ProductWithCategory[];
@@ -22,4 +23,5 @@ export type UpdateProductSchema = {
   price: number;
   slug: string;
   title: string;
+  description: string;
 };

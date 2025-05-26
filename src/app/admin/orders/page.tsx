@@ -7,7 +7,7 @@ const Orders = async () => {
   if(!ordersWithProducts) return <div className="text-center font-bold text-2xl">
     No order found
   </div>;
-  console.log(ordersWithProducts);
+  // console.log(ordersWithProducts);
   return (
     <PageComponent ordersWithProducts={ordersWithProducts} />
   )

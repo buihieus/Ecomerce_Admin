@@ -59,6 +59,7 @@ export const ProductPageComponent: FC<Props> = ({
       category: undefined,
       price: undefined,
       maxQuantity: undefined,
+      description: undefined, //
       heroImage: undefined,
       images: [],
       intent: 'create',
@@ -79,6 +80,7 @@ export const ProductPageComponent: FC<Props> = ({
       heroImage,
       slug,
       intent = 'create',
+      description,
     } = data;
 
     const uploadFile = async (file: File) => {
@@ -127,6 +129,7 @@ export const ProductPageComponent: FC<Props> = ({
             maxQuantity: Number(maxQuantity),
             price: Number(price),
             title,
+            description,
           });
           form.reset();
           router.refresh();
@@ -145,6 +148,7 @@ export const ProductPageComponent: FC<Props> = ({
             price: Number(price),
             title,
             slug,
+            description,
           });
           form.reset();
           router.refresh();
@@ -191,6 +195,7 @@ export const ProductPageComponent: FC<Props> = ({
               <TableHead>Category</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Max Quantity</TableHead>
+              <TableHead>Description</TableHead>
               <TableHead>Hero Image</TableHead>
               <TableHead>Product Images</TableHead>
               <TableHead>Actions</TableHead>

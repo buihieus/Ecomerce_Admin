@@ -8,7 +8,13 @@ const nextConfig: NextConfig = {
       hostname: "dgxwulsaskeapldevwjp.supabase.co",
       pathname: "/**", // Bắt buộc phải có
       // pathname: "/storage/v1/object/public/**",
-    }]
+    },
+    {
+      protocol: "https",
+      hostname: "cdn.pixabay.com",
+      pathname: "/**",
+    },
+    ]
   },
   experimental: {
     serverActions: {
